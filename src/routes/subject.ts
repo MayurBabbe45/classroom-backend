@@ -43,7 +43,6 @@ router.get("/", async (req, res) => {
     const countResult = await countQuery;
 
     const totalCount = Number(countResult[0]?.count ?? 0);
-
     let subjectsQuery = db
       .select({
         ...getTableColumns(subjects),
