@@ -42,7 +42,7 @@ router.get("/", async (req, res) => {
     if (whereConditions) countQuery = countQuery.where(whereConditions);
     const countResult = await countQuery;
 
-    const totalCount = countResult[0]?.count ?? 0;
+    const totalCount = Number(countResult[0]?.count ?? 0);
 
     let subjectsQuery = db
       .select({
