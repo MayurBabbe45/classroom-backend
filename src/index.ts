@@ -6,6 +6,11 @@ import cors from 'cors';
 const app = express();
 const port = 8000;
 
+
+if(!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL is not set in .env file');
+}
+
 app.use(cors(
     {
         origin: process.env.FRONTEND_URL,
